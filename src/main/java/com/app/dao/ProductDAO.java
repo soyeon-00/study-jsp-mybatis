@@ -36,8 +36,11 @@ public class ProductDAO {
 	}
 	
 //	상품 수정
+	public void update(ProductVO productVO) {
+		sqlSession.update("product.update", productVO);
+	}
 //	상품 삭제
-	public void delete(ProductVO productVO) {
-		sqlSession.delete("product.delete", productVO);
+	public void delete(Long id) {
+		sqlSession.delete("product.delete", id);
 	}
 }

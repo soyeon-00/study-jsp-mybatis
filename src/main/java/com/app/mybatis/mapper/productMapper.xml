@@ -19,9 +19,15 @@
 		WHERE ID =#{id}
 	</select>
 	
-	<delete id="delete" parameterType="com.app.vo.ProductVO">
-		DELETE INTO TBL_PRODUCT(ID, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_STOCK)
-		VALUES(PRODUCT_SEQ.NEXTVAL, #{productName}, #{productPrice}, #{productStock})
+	<update id="update" parameterType="ProductVO">
+		UPDATE TBL_PRODUCT
+		SET PRODUCT_NAME = #{productName}, PRODUCT_PRICE = #{productPrice}, PRODUCT_STOCK = #{productStock}
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="Long">
+		DELETE FROM TBL_PRODUCT
+		WHERE ID = #{id}
 	</delete>
 	
 </mapper>
